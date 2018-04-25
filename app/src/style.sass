@@ -1,11 +1,13 @@
-$font-stack:    Helvetica, sans-serif
+$font-stack: Helvetica, sans-serif
 $primary-color: #333
 $secondary-color: #EEE
+$special-color: #686de0
 
 body
   font: 100% $font-stack
   color: $primary-color
   margin: 0
+  background-color: $primary-color
 
 
 div.container
@@ -15,12 +17,26 @@ div.container
   overflow: hidden
   nav
     width: 100%
-    background-color: $primary-color
-    color: $secondary-color
+    background-color: $secondary-color
+    color: $primary-color
+    input
+      float: right
+      height: 20px
     ul
       display: inline-block
+      margin: 0
+      padding: 0
       li
         display: inline-block
+        padding: 20px 40px 20px 40px
+        a
+          text-decoration: none
+          text-transform: uppercase
+      li.brand
+        background: $special-color
+        font-weight: bold
+        a
+          color: $secondary-color
 .wrapper
   display: grid
   grid-template-columns: repeat(7, 1fr)
@@ -31,6 +47,8 @@ div.container
     grid-column: auto
     grid-row: auto
     height: auto
+    overflow: hidden
     img
       width: 100%
       height: auto
+      display: block

@@ -1,7 +1,8 @@
 body {
   font: 100% Helvetica, sans-serif;
   color: #333;
-  margin: 0; }
+  margin: 0;
+  background-color: #333; }
 
 div.container {
   width: 80%;
@@ -10,12 +11,26 @@ div.container {
   overflow: hidden; }
   div.container nav {
     width: 100%;
-    background-color: #333;
-    color: #EEE; }
+    background-color: #EEE;
+    color: #333; }
     div.container nav ul {
-      display: inline-block; }
+      display: inline-block;
+      margin: 0;
+      padding: 0; }
       div.container nav ul li {
-        display: inline-block; }
+        display: inline-block;
+        padding: 20px 40px 20px 40px; }
+        div.container nav ul li a {
+          text-decoration: none;
+          text-transform: uppercase; }
+        div.container nav ul li input {
+          float: right;
+          height: 20px; }
+      div.container nav ul li.brand {
+        background: #686de0;
+        font-weight: bold; }
+        div.container nav ul li.brand a {
+          color: #EEE; }
 
 .wrapper {
   display: grid;
@@ -25,9 +40,11 @@ div.container {
   .wrapper article {
     grid-column: auto;
     grid-row: auto;
-    height: auto; }
+    height: auto;
+    overflow: hidden; }
     .wrapper article img {
       width: 100%;
-      height: auto; }
+      height: auto;
+      display: block; }
 
 /*# sourceMappingURL=style.css.map */
