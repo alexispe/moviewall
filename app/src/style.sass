@@ -5,10 +5,32 @@ $secondary-color: #EEE
 body
   font: 100% $font-stack
   color: $primary-color
+  margin: 0
 
 
+div.container
+  width: 80%
+  margin: 20px auto 20px auto
+  border-radius: 5px
+  overflow: hidden
+  nav
+    width: 100%
+    background-color: $primary-color
+    color: $secondary-color
+    ul
+      display: inline-block
+      li
+        display: inline-block
+.wrapper
+  display: grid
+  grid-template-columns: repeat(7, 1fr)
+  grid-gap: 0px
+  grid-auto-rows: minmax(100px, auto)
 
-nav
-  width: 100%
-  background-color: $primary-color
-  color: $secondary-color
+  article
+    grid-column: auto
+    grid-row: auto
+    height: auto
+    img
+      width: 100%
+      height: auto
