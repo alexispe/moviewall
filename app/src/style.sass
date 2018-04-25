@@ -52,7 +52,6 @@ div.container
 .wrapper
   display: grid
   grid-template-columns: repeat(7, 1fr)
-  grid-gap: 0px
   grid-auto-rows: minmax(100px, auto)
 
   article
@@ -64,3 +63,17 @@ div.container
       width: 100%
       height: auto
       display: block
+
+.single
+  background: $secondary-color
+  display: grid
+  grid-template-columns: 250px 1fr
+  grid-auto-rows: minmax(100px, auto)
+
+  .image
+    grid-column: 1
+    grid-row: 1
+
+  .content
+    grid-column: 2
+    grid-row: 1
