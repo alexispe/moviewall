@@ -57,16 +57,31 @@ div.container {
       width: 100%;
       height: auto;
       display: block; }
+  .wrapper article:first-of-type {
+    grid-row: 1/3;
+    grid-column: 1/3; }
 
 .single {
   background: #EEE;
   display: grid;
-  grid-template-columns: 250px 1fr;
+  grid-template-columns: 1fr 3fr;
   grid-auto-rows: minmax(100px, auto); }
   .single .image {
     grid-column: 1;
     grid-row: 1; }
   .single .content {
+    grid-column: 2;
+    grid-row: 1; }
+
+.sort {
+  background: #EEE;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-auto-rows: minmax(100px, auto); }
+  .sort .image {
+    grid-column: 1;
+    grid-row: 1; }
+  .sort .content {
     grid-column: 2;
     grid-row: 1; }
 
