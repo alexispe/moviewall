@@ -1,11 +1,16 @@
 # MovieWall
+**MovieWall** est un projet développé en 12 heures. Il utilise l'api de [TheMovieDB](https://www.themoviedb.org/). Le design de l'application est fortement inspiré de [CineMur](https://cinemur.fr/film/avengers-infinity-war-232180).
 
-```sh
+Les mockups du projet sont disponibles dans le dossier mockups au format PDF ainsi que Balzamiq.
+
+Pour afficher l'application dans votre navigateur suivez les instructions dans Installation ci-dessous.
+
 ## Installation :
+Colnage du dépôt :
+```sh
 $ git clone https://github.com/alexispe/moviewall.git
-$ cd moviewall/app
-$ npm install
 ```
+Puis ouvrez **moviewall/app/dist/index.html** dans votre navigateur.
 ## Build :
 ```sh
 $ cd moviewall/app
@@ -16,8 +21,16 @@ $ gulp
 $ cd moviewall/app
 $ gulp watch
 ```
+## Fonctionnalités :
+- Liste des films en cours au cinéma (wall)
+- Infinite Scroll sur cette liste
+- Affichage d'un film au clique sur son affiche
+- Ajout d'un film dans les favoris
+- Suppression d'un film dans les favoris
+- Rechercher un film par son nom dans le menu
+- Afficher la liste des films trier par le nom de l'acteur et le genre
 ## Technos :
- - Sass
- - Gulp
- - node.js
- - jQuery
+- Sass
+- Gulp
+- node.js
+- jQuery
