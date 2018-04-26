@@ -8,7 +8,8 @@ body
   color: $primary-color
   margin: 0
   background-color: $primary-color
-
+.text-bold
+  font-weight: bold
 
 div.container
   width: 80%
@@ -59,10 +60,13 @@ div.container
     grid-row: auto
     height: auto
     overflow: hidden
+    transition: transform .2s
     img
       width: 100%
       height: auto
       display: block
+  article:hover
+    transform: scale(1.05)
   article:first-of-type
     grid-row: 1 / 3
     grid-column: 1 / 3
@@ -76,10 +80,20 @@ div.container
   .image
     grid-column: 1
     grid-row: 1
+    text-align: center
+    img
+      border-radius: 5px
+      width: 80%
+      margin: 20px
 
   .content
     grid-column: 2
     grid-row: 1
+    padding-right: 40px
+    .detail
+      display: grid
+      grid-template-columns: 1fr 1fr
+      grid-auto-rows: auto
 .sort
   background: $secondary-color
   display: grid
