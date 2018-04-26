@@ -27,6 +27,7 @@ $ gulp watch
 - Affichage d'un film au clique sur son affiche
 - Ajout d'un film dans les favoris
 - Suppression d'un film dans les favoris
+- Liste des favoris
 - Rechercher un film par son nom dans le menu
 - Afficher la liste des films trier par le nom de l'acteur et le genre
 ## Technos :
@@ -34,3 +35,5 @@ $ gulp watch
 - Gulp
 - node.js
 - jQuery
+
+Réalisé avec amour par Hugo, Bryan et Alexis ❤
