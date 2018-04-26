@@ -1,28 +1,44 @@
-$.urlParam = function (name) {
+$.urlParam = function(name) {
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
     if (results != null) {
         return results[1] || 0;
     }
 }
-var idActeur, details = ""
-
-
+$.getNowPlayingMovies = function(page) {
+  $.ajax({
+      "async": true,
+      "crossDomain": true,
+      "url": "https://api.themoviedb.org/3/movie/now_playing?api_key=6b2d1b79a395d6c1c9c9a72f5afab091&language=fr&page="+page,
+      "method": "GET",
+      "headers": {},
+      "data": "{}"
+  }).done(function (response) {
+      response.results.map(function (elem) {
+          $('section.wrapper').append('<article class=""><a href="single.html?id=' + elem.id + '"><img src="https://image.tmdb.org/t/p/w500' + elem.poster_path + '"></a></article>');
+      })
+      $(window).data('ready', true);
+  });
+}
 if (currentPage == "index") {
-    $.ajax({
-        "async": true,
-        "crossDomain": true,
-        "url": "https://api.themoviedb.org/3/movie/now_playing?api_key=6b2d1b79a395d6c1c9c9a72f5afab091&language=fr&page=1",
-        "method": "GET",
-        "headers": {},
-        "data": "{}"
-    }).done(function (response) {
-        var image = ""
-        response.results.map(function (elem) {
-            image += '<article><a href="single.html?id=' + elem.id + '"><img src="https://image.tmdb.org/t/p/w500' + elem.poster_path + '"></a></article>'
-            $('section.wrapper').html(image);
-        })
-    });
-} else if (currentPage == "single") {
+  var moviePage = 1
+
+  $(window).data('ready', false);
+  $.getNowPlayingMovies(moviePage);
+  moviePage++;
+
+  $(window).scroll(function() {
+    if ($(window).data('ready') == false) return; // If ready = false stop
+    var agentID = navigator.userAgent.toLowerCase().match(/(iphone|ipod|ipad)/);
+    if(($(window).scrollTop() + $(window).height()) == $(document).height()
+    || agentID && ($(window).scrollTop() + $(window).height()) + 150 > $(document).height()) {
+      $(window).data('ready', false);
+
+      $.getNowPlayingMovies(moviePage);
+      moviePage++;
+    }
+  });
+}
+else if (currentPage == "single") {
     var id = $.urlParam('id');
     $.ajax({
         "async": true,
@@ -40,9 +56,7 @@ if (currentPage == "index") {
             $('.mov-gender').html(gender)
         })
         $('.mov-release-date').html(response.release_date)
-        if (response.homepage != null) {
-            $('.mov-homepage').html('<a href="' + response.homepage + '">Site Web</a>')
-        }
+        $('.mov-homepage').html('<a href="' + response.homepage + '">Site Web</a>')
         $('.mov-vote-average').html(response.vote_average)
         $('.mov-runtime').html(response.runtime)
         $('.mov-synopsis').html(response.overview)
@@ -74,20 +88,13 @@ else if (currentPage == "sort") {
         }).done(function (response) {
             var details = ""
             response.results.map(function (elem) {
-                var imageLink = ""
-                console.log("iuji" + elem.poster_path)
-                if (elem.poster_path == null) {
-                    imageLink = "http://via.placeholder.com/500x742?text=No+Image+Yet"
-                }
-                else {
-                    imageLink = "https://image.tmdb.org/t/p/w500" + elem.poster_path
-                }
-                details += '<article><a href="single.html?id=' + elem.id + '"><img src="' + imageLink + '"></a><h1>' + elem.title + '</h1></article>';
+                details += '<article><a href="single.html?id=' + elem.id + '"><img src="https://image.tmdb.org/t/p/w500' + elem.poster_path + '"><h1>' + elem.title + '</h1></a></article>';
                 $('div.list').html(details)
             })
         });
     }
     else if ($.urlParam('submit')) {
+        var idActeur = ""
         $.ajax({
             "async": true,
             "crossDomain": true,
@@ -113,15 +120,9 @@ else if (currentPage == "sort") {
                 "headers": {},
                 "data": "{}"
             }).done(function (response) {
+                var details = ""
                 response.results.map(function (elem) {
-                    var imageLink = ""
-                    if (elem.poster_path == null) {
-                        imageLink = "http://via.placeholder.com/500x742?text=No+Image+Yet"
-                    }
-                    else {
-                        imageLink = "https://image.tmdb.org/t/p/w500" + elem.poster_path
-                    }
-                    details += '<article><a href="single.html?id=' + elem.id + '"><img src="' + imageLink + '"></a><h1>' + elem.title + '</h1></article>';
+                    details += '<article><a href="single.html?id=' + elem.id + '"><img src="https://image.tmdb.org/t/p/w500' + elem.poster_path + '"></a><h1>' + elem.title + '</h1></article>';
                     $('div.list').html(details)
                 })
             });
