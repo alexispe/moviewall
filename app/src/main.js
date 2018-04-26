@@ -4,6 +4,9 @@ $.urlParam = function (name) {
         return results[1] || 0;
     }
 }
+var idActeur, details = ""
+
+
 if (currentPage == "index") {
     $.ajax({
         "async": true,
@@ -37,7 +40,9 @@ if (currentPage == "index") {
             $('.mov-gender').html(gender)
         })
         $('.mov-release-date').html(response.release_date)
-        $('.mov-homepage').html('<a href="' + response.homepage + '">Site Web</a>')
+        if (response.homepage != null) {
+            $('.mov-homepage').html('<a href="' + response.homepage + '">Site Web</a>')
+        }
         $('.mov-vote-average').html(response.vote_average)
         $('.mov-runtime').html(response.runtime)
         $('.mov-synopsis').html(response.overview)
@@ -69,13 +74,20 @@ else if (currentPage == "sort") {
         }).done(function (response) {
             var details = ""
             response.results.map(function (elem) {
-                details += '<article><a href="single.html?id=' + elem.id + '"><img src="https://image.tmdb.org/t/p/w500' + elem.poster_path + '"><h1>' + elem.title + '</h1></a></article>';
+                var imageLink = ""
+                console.log("iuji" + elem.poster_path)
+                if (elem.poster_path == null) {
+                    imageLink = "http://via.placeholder.com/500x742?text=No+Image+Yet"
+                }
+                else {
+                    imageLink = "https://image.tmdb.org/t/p/w500" + elem.poster_path
+                }
+                details += '<article><a href="single.html?id=' + elem.id + '"><img src="' + imageLink + '"></a><h1>' + elem.title + '</h1></article>';
                 $('div.list').html(details)
             })
         });
     }
     else if ($.urlParam('submit')) {
-        var idActeur = ""
         $.ajax({
             "async": true,
             "crossDomain": true,
@@ -101,9 +113,15 @@ else if (currentPage == "sort") {
                 "headers": {},
                 "data": "{}"
             }).done(function (response) {
-                var details = ""
                 response.results.map(function (elem) {
-                    details += '<article><a href="single.html?id=' + elem.id + '"><img src="https://image.tmdb.org/t/p/w500' + elem.poster_path + '"></a><h1>' + elem.title + '</h1></article>';
+                    var imageLink = ""
+                    if (elem.poster_path == null) {
+                        imageLink = "http://via.placeholder.com/500x742?text=No+Image+Yet"
+                    }
+                    else {
+                        imageLink = "https://image.tmdb.org/t/p/w500" + elem.poster_path
+                    }
+                    details += '<article><a href="single.html?id=' + elem.id + '"><img src="' + imageLink + '"></a><h1>' + elem.title + '</h1></article>';
                     $('div.list').html(details)
                 })
             });
