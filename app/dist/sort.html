@@ -21,28 +21,26 @@
       <section class="sort">
         <form class="" action="sort.html" method="get">
           Genre :
-          <input type="checkbox" name="" value="Action">
-          <input type="checkbox" name="" value="Aventure">
-          <input type="checkbox" name="" value="Horreur">
-          <input type="checkbox" name="" value="Fantastique">
-          <input type="checkbox" name="" value="Thriller">
+          <input type="checkbox" name="action" value="28">
+          <input type="checkbox" name="aventure" value="12">
+          <input type="checkbox" name="horreur" value="27">
+          <input type="checkbox" name="fantastique" value="14">
+          <input type="checkbox" name="crime" value="80">
+          <input type="checkbox" name="comedie" value="35">
+          <input type="hidden" name="genre">
+          
           Année :
-          <input type="checkbox" name="" value="1990 - 2000">
-          <input type="checkbox" name="" value="2001 - 2010">
-          <input type="checkbox" name="" value="2011 - 2020">
+          <input type="checkbox" name="1990-2000" value="1990 - 2000">
+          <input type="checkbox" name="2001-2010" value="2001 - 2010">
+          <input type="checkbox" name="2011-2020" value="2011 - 2020">
           Acteur
-          <input type="text" name="" value="">
+          <input type="text" name="acteur" value="">
 
           <input type="reset" name="" value="Reset">
-          <input type="submit" name="" value="Valider">
+          <input type="submit" name="submit" value="Valider">
 
         </form>
         <div class="list">
-          <article>
-            <img src="" alt="">
-            <h1>TITRE</h1>
-            <p>synopsis</p>
-          </article>
         </div>
       </section>
     </div>
@@ -51,6 +49,9 @@
   <script
 			  src="http://code.jquery.com/jquery-3.3.1.min.js"
 			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			  crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
+        <script>
+          currentPage = "sort"
+        </script>
   <script src="main.js" charset="utf-8"></script>
 </html>
