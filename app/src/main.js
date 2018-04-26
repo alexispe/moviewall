@@ -5,7 +5,7 @@ $.urlParam = function(name) {
     }
 }
 
-var idActeur, details, imageLink = ""
+var idActeur = details = imageLink = ""
 $.getNowPlayingMovies = function(page) {
   $.ajax({
       "async": true,

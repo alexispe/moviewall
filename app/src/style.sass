@@ -60,6 +60,7 @@ div.container
         height: 100%
         a
           color: $secondary-color
+
 .wrapper
   display: grid
   grid-template-columns: repeat(7, 1fr)
@@ -82,10 +83,10 @@ div.container
       display: block
   article:hover
     transform: scale(1.05)
-  @media screen and (min-width: $break-small)
-    article:first-of-type
-      grid-row: 1 / 3
-      grid-column: 1 / 3
+@media screen and (min-width: $break-small)
+  .first-big article:first-of-type
+    grid-row: 1 / 3
+    grid-column: 1 / 3
 
 .single
   background: $secondary-color
