@@ -29,7 +29,6 @@ $.getNowPlayingMovies = function (page) {
 }
 if (currentPage == "index") {
     var moviePage = 1
-
     $(window).data('ready', false);
     $.getNowPlayingMovies(moviePage);
     moviePage++;
@@ -48,32 +47,31 @@ if (currentPage == "index") {
 }
 else if (currentPage == "single") {
     idExistInArray = JSON.parse(localStorage.getItem('id'));
-    if ($.inArray($.urlParam('id'), idExistInArray) != -1){
+    if ($.inArray($.urlParam('id'), idExistInArray) != -1) {
         $('.mov-btn-add').hide()
     }
-    else
-    {
+    else {
         $('.mov-btn-rem').hide()
     }
 
     $('.mov-btn-add').click(function () {
-        if(localStorage.getItem('id')==null) localStorage.setItem('id', JSON.stringify([]))
+        if (localStorage.getItem('id') == null) localStorage.setItem('id', JSON.stringify([]))
         arrLocalStorage = JSON.parse(localStorage.getItem('id'));
         arrLocalStorage.push($.urlParam('id'))
         localStorage.setItem('id', JSON.stringify(arrLocalStorage))
         $('.mov-btn-rem').show()
         $('.mov-btn-add').hide()
     })
-    $('.mov-btn-rem').click(function(){
+    $('.mov-btn-rem').click(function () {
         var idMovie = $.urlParam('id')
         arrLocalStorage = JSON.parse(localStorage.getItem('id'));
         var index = arrLocalStorage.indexOf($.urlParam('id'))
-        if (index > -1){
+        if (index > -1) {
             arrLocalStorage.splice(index, 1)
         }
-        localStorage.setItem('id', JSON.stringify(arrLocalStorage))   
-        $('.mov-btn-add').show()  
-        $('.mov-btn-rem').hide()   
+        localStorage.setItem('id', JSON.stringify(arrLocalStorage))
+        $('.mov-btn-add').show()
+        $('.mov-btn-rem').hide()
     })
 
     var id = $.urlParam('id');
@@ -179,4 +177,26 @@ else if (currentPage == "sort") {
             });
         });
     }
+}
+else if (currentPage == "bookmarks") {
+    arrLocalStorage = JSON.parse(localStorage.getItem('id'));
+    arrLocalStorage.map(function (elem) {
+        $.ajax({
+            "async": true,
+            "crossDomain": true,
+            "url": "https://api.themoviedb.org/3/movie/" + elem + "?api_key=6b2d1b79a395d6c1c9c9a72f5afab091&language=fr",
+            "method": "GET",
+            "headers": {},
+            "data": "{}"
+        }).done(function (response) {
+            console.log(response.id)
+            if (response.poster_path == null) {
+                imageLink = "http://via.placeholder.com/500x742?text=No+Image+Yet"
+            }
+            else {
+                imageLink = "https://image.tmdb.org/t/p/w500" + response.poster_path
+            }
+            $('section.wrapper').append('<article class=""><a href="single.html?id=' + response.id + '"><img src="' + imageLink + '"></a></article>');
+        })
+    })
 }

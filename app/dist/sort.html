@@ -2,16 +2,18 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>MovieWall - Single</title>
+    <title>MovieWall - Sort</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <div class="container">
       <nav>
         <ul>
           <li class="brand"><a href="index.html">Wall</a></li>
-          <li><a href="sort.html">Trier</a></li>
+          <li><a href="sort.html"><i class="fa fa-sort-amount-asc"></i></a></li>
+          <li><a href="bookmarks.html"><i class="fa fa-star"></i></a></li>
         </ul>
         <form action="sort.html" method="get">
           <input type="text" placeholder="RECHERCHER" name="search" value="">
@@ -54,8 +56,8 @@
           </fieldset>
 
 
-          <input type="reset" name="" value="Reset">
-          <input type="submit" name="submit" value="Valider">
+          <input type="reset" name="" value="Reset" class="button secondary">
+          <input type="submit" name="submit" value="Valider" class="button">
 
         </form>
         <div class="list wrapper">

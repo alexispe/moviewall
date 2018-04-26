@@ -50,7 +50,7 @@ div.container
       padding: 0
       li
         display: inline-block
-        padding: 20px 40px 20px 40px
+        padding: 20px 20px 20px 20px
         a
           text-decoration: none
           text-transform: uppercase
@@ -58,6 +58,7 @@ div.container
         background: $special-color
         font-weight: bold
         height: 100%
+        padding: 20px 40px 20px 40px
         a
           color: $secondary-color
 
@@ -128,12 +129,14 @@ div.container
         width: 100%
         height: auto
         border-radius: 5px
+        border-style: none
+        padding: 5px 0 5px 0
       button.active
         background: $special-color
         color: $secondary-color
       button.inactive
-        background: $secondary-color
-        color: $primary-color
+        background: $primary-color
+        color: $secondary-color
 
 // ---------- SORT ---------
 .sort
@@ -147,6 +150,18 @@ div.container
     grid-column: 1
     grid-row: 1
     padding: 20px
+    .button
+      width: 100%
+      height: auto
+      border-radius: 5px
+      border-style: none
+      padding: 5px 0 5px 0
+      margin: 5px 0 5px 0
+      background: $special-color
+      color: $secondary-color
+    .button.secondary
+      background: $primary-color
+      color: $secondary-color
   .list
     grid-column: 2
     grid-row: 1
