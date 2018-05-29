@@ -5,6 +5,10 @@ Les mockups du projet sont disponibles dans le dossier mockups au format PDF ain
 
 Pour afficher l'application dans votre navigateur suivez les instructions dans Installation ci-dessous.
 
+## Presentation :
+| Accueil | Recherche | Détails | Favoris |
+| ------ | ------ | ------ | ------ |
+| ![Page d'accueil](https://github.com/alexispe/moviewall/blob/master/capture-home.png) | ![Page de recherche](https://github.com/alexispe/moviewall/blob/master/capture-search.png) | ![Page détails](https://github.com/alexispe/moviewall/blob/master/capture-single.png) | ![Page favoris](https://github.com/alexispe/moviewall/blob/master/capture-favoris.png) |
 ## Installation :
 Colnage du dépôt :
 ```sh
