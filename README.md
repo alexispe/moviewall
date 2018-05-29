@@ -10,7 +10,7 @@ Pour afficher l'application dans votre navigateur suivez les instructions dans I
 | ------ | ------ | ------ | ------ |
 | ![Page d'accueil](https://github.com/alexispe/moviewall/blob/master/capture-home.png) | ![Page de recherche](https://github.com/alexispe/moviewall/blob/master/capture-search.png) | ![Page détails](https://github.com/alexispe/moviewall/blob/master/capture-single.png) | ![Page favoris](https://github.com/alexispe/moviewall/blob/master/capture-favoris.png) |
 ## Installation :
-Colnage du dépôt :
+Clonage du dépôt :
 ```sh
 $ git clone https://github.com/alexispe/moviewall.git
 ```
@@ -26,7 +26,7 @@ $ cd moviewall/app
 $ gulp watch
 ```
 ## Fonctionnalités :
-- Liste des films en cours au cinéma (wall)
+- Liste des films en cours au cinéma (Accueil)
 - Infinite Scroll sur cette liste
 - Affichage d'un film au clique sur son affiche
 - Ajout d'un film dans les favoris
@@ -37,7 +37,6 @@ $ gulp watch
 ## Technos :
 - Sass
 - Gulp
-- node.js
 - jQuery
 
 Réalisé avec amour par Hugo, Bryan et Alexis ❤
